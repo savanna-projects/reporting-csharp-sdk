@@ -1,7 +1,6 @@
-﻿using System.Collections.Generic;
-using System.Web.UI;
+
 using OpenQA.Selenium;
-using Reportium.Exceptions;
+using System.Collections.Generic;
 
 namespace Reportium.Model
 {
@@ -12,33 +11,21 @@ namespace Reportium.Model
     public class PerfectoExecutionContext : BaseExecutionContext
     {
 
-        public List<Pair> WebDriverPairs { get; set; }
+        public List<KeyValuePair<string, IWebDriver>> WebDriverPairs { get; set; }
 
         public PerfectoExecutionContext()
         {
 
-            WebDriverPairs = new List<Pair>();
+            WebDriverPairs = new List<KeyValuePair<string, IWebDriver>>();
         }
 
-        //protected PerfectoExecutionContext(PerfectoExecutionContextBuilder<PerfectoExecutionContext, PerfectoExecutionContextBuilder> builder) : base(builder)
-        //{
-
-        //    if (builder.webDriverPairs.Count == 0)
-        //    {
-        //        throw new ReportiumException("Missing required web driver(s) argument. Call your builder's withWebDriver() method");
-        //    }
-
-        //    WebDriverPairs.AddRange(builder.webDriverPairs);
-        //}
-
-        //public List<Pair> WebDriverPairs { get ; set; }
-
+        
         public IWebDriver GetWebDriver()
         {
-            return (IWebDriver)WebDriverPairs[0].Second;
+            return (IWebDriver)WebDriverPairs[0].Value;
         }
 
-        public List<Pair> GetWebDriverPairs()
+        public List<KeyValuePair<string, IWebDriver>> GetWebDriverPairs()
         {
             return WebDriverPairs;
         }
@@ -59,7 +46,7 @@ namespace Reportium.Model
 
             public T WithWebDriver(IWebDriver webDriver, string alias)
             {
-                obj.WebDriverPairs.Add(new Pair(alias, webDriver));
+                obj.WebDriverPairs.Add(new KeyValuePair<string,IWebDriver>(alias, webDriver));
                 index++;
                 return _this;
             }
