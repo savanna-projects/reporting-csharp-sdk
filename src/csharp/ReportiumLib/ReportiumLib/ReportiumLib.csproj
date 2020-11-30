@@ -1,0 +1,26 @@
+﻿<Project Sdk="Microsoft.NET.Sdk">
+
+  <PropertyGroup>
+    <TargetFrameworks>netstandard2.0;netstandard2.1;net5.0</TargetFrameworks>
+    <RootNamespace>Reportium</RootNamespace>
+    <PackageId>Perfecto-Reporting-RhinoApi</PackageId>
+    <PackageVersion>3.0.3</PackageVersion>
+    <LangVersion>latest</LangVersion>
+    <Title>Perfecto Reporting C#</Title>
+    <Authors>Perfecto, Rhino-API Community</Authors>
+    <Description>Perfecto Reporting SDK for C#</Description>
+    <PackageRequireLicenseAcceptance>true</PackageRequireLicenseAcceptance>
+    <PackageLicenseExpression>Apache-2.0</PackageLicenseExpression>
+    <releaseNotes>Migrate to .NET5.0</releaseNotes>
+    <PackageProjectUrl>https://github.com/savanna-projects/reporting-csharp-sdk</PackageProjectUrl>
+    <NeutralLanguage>en-US</NeutralLanguage>
+    <PackageTags>Perfecto PerfectoMobile C# Reporting Reportium</PackageTags>
+    <Copyright>Copyright 2016</Copyright>
+  </PropertyGroup>
+
+  <ItemGroup>
+    <PackageReference Include="Newtonsoft.Json" Version="12.0.3" />
+    <PackageReference Include="Selenium.WebDriver" Version="3.141.0" />
+  </ItemGroup>
+
+</Project>
